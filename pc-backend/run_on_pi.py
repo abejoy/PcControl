@@ -4,7 +4,7 @@ from flask import Flask, json, render_template
 from datetime import datetime, timedelta
 import time
 import requests
-api = Flask(__name__, static_folder='./pc-app/build/static', template_folder='./pc-app/build')
+api = Flask(__name__, static_folder='../pc-app/build/static', template_folder='../pc-app/build')
 
 servoPin = 12
 
@@ -117,5 +117,5 @@ def sleepPc():
 def main_shit():
     return render_template("index.html", token="Hello Flask+React")
 
-api.run(host='0.0.0.0', port=8080)
+api.run(host='0.0.0.0', port=80)
 destroy()
