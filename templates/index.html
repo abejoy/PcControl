@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<style>
+* {
+  outline:none;
+  text-decoration:none;
+  border:none;
+}
+
+body {
+  background-color: #ecf0f1;
+  font-size: 3rem;
+  font-family: arial;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+div { 
+  margin: 50px auto;
+}
+
+.btn {
+  padding: 25px;
+  font-weight: 700;
+  font-size: 3rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all .5s ease; 
+}
+
+.btn--doar {
+  color: #fff;
+  padding-right: 0;
+  background-color: #c0392b;
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 70%, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 0 100%);
+
+}
+
+.btn--doar:hover { 
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);  
+}
+
+.btn--doar:after {
+  content: "\f004";
+  color: #e74c3c;
+  font-family: FontAwesome;
+  display: inline-block;
+  position: relative;
+  right: -55px;
+  transition: all 0.2s ease;
+}
+
+.btn--doar:hover:after {
+  margin: -5px 15px;
+  right: 0px;
+}
+
+.btn--promo {
+  color: #dff9fb;
+  background-color: #130f40;
+  border-radius: 50px;
+}
+
+.btn--promo:after {
+  content: '40% OFF';
+  display: inline-block;
+  font-size: 1rem;
+  color: #130f40;
+  background-color: #f0932b;
+  border-radius: 25px;
+  padding: 5px;
+  position: absolute;
+  margin-top: -30px; 
+  margin-left: -55px; 
+}
+
+.btn--action{
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background-color: #f6e58d;
+  color: #000;
+  transition: all .5s ease 0s; 
+  box-shadow: 0 10px #f9ca24;
+}
+
+/* .btn--action:hover{
+box-shadow: inset 0 0 0 .25rem #ffbe76;
+} */
+
+.btn--action span{
+  display: inline-block;
+  position: relative;
+  transition: all .5s ease;
+}
+
+.btn--action span:before{
+  content: '\f04c'; 
+  color: #000;
+  font-size: 1rem;
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 1.5rem;
+  opacity: 0;
+  transition: all .1s ease 0s;
+}
+
+.btn--action:hover span{
+  padding-left: 1.5rem; 
+}
+
+.btn--action:hover span:before{
+  left: 0;
+  opacity: 1;
+}
+
+.btn--action:active {
+  box-shadow: 0 5px #f0932b;
+  transform: translateY(5px);
+}
+
+/* Redes Sociais */
+.circle-button{
+  font-family: 'Roboto', sans-serif;
+    color: #ccc;
+    display: inline-block;
+  font-size: 2rem;
+  border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.circle-button:hover{
+    animation: circle-anim 0.3s ease forwards;
+    transition: all 0.4s ease;
+}
+
+.grow-container{
+  display: inline-block;
+  margin: 1em;
+}
+
+.to-red:hover{
+  background: #E5393F;
+}
+
+.to-twitter:hover{
+  background: #1DA1F3;
+}
+
+.to-facebook:hover{
+  background: #3B5998;
+}
+
+.to-linkedin:hover{
+  background: #0077B5;
+}
+
+.to-reddit:hover{
+  background: #FF4500;
+}
+
+@keyframes circle-anim{
+    0% {
+        
+    }
+    
+    90%{
+        padding: 0.35em;
+        margin: -0.35em; 
+    }
+    
+    100%{
+        padding: 0.25em;
+        margin: -0.25em; 
+    }
+}
+
+/* WOOOW */
+button {
+  width: 50%;
+  height: 10em;
+  background: #E6203B;
+  cursor:pointer;
+  border-radius: 25px;
+}
+
+button a {
+  color: #fff;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-size: 3em;
+}
+
+/* let's shape */
+button span.shape {
+  height: 60px;
+  width: 160px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+button span span {
+  content:"";
+  position: absolute;
+  margin: auto;
+  height: 8px;
+  width: 2px;
+  background: #E6203B;
+  opacity: 0;
+}
+
+button span span:nth-of-type(1) {
+  top: -20px;
+  left: 0;
+  right: 0;
+}
+
+button span span:nth-of-type(2) {
+  bottom: -20px;
+  left: 0;
+  right: 0;
+}
+
+button span span:nth-of-type(3) {
+  top:0;
+  bottom: 0;
+  left: -10px;
+}
+
+button span span:nth-of-type(4) {
+  top:0;
+  bottom: 0;
+  right: -10px;
+}
+
+button span span:nth-of-type(5) {
+  top: -20px;
+  left: -70%;
+  right: 0;
+  transform:rotate(-30deg);
+}
+
+button span span:nth-of-type(6) {
+  top: -20px;
+  left: 0;
+  right: -70%;
+  transform:rotate(30deg);
+}
+
+button span span:nth-of-type(7) {
+  bottom: -20px;
+  right: 0;
+  left: -70%;
+  transform:rotate(30deg);
+}
+
+button span span:nth-of-type(8) {
+  bottom: -20px;
+  left: 0;
+  right: -70%;
+  transform:rotate(-30deg);
+}
+
+/* let's animate this */
+@keyframes bounce {
+  0%{transform: scale(1);}
+  50%{transform: scale(1.1);}
+  100%{transform: scale(1);}
+}
+
+button.active {
+  animation: bounce 0.3s ease-out 1;
+}
+
+button.active span span:nth-of-type(1) {
+  animation: anim1 0.4s ease-out 1;
+}
+button.active span span:nth-of-type(2) {
+  animation: anim2 0.4s ease-out 1;
+}
+button.active span span:nth-of-type(3) {
+  animation: anim3 0.4s ease-out 1;
+}
+button.active span span:nth-of-type(4) {
+  animation: anim4 0.4s ease-out 1;
+}
+button.active span span:nth-of-type(5) {
+  animation: anim5 0.4s ease-out 1;
+}
+button.active span span:nth-of-type(6) {
+  animation: anim6 0.4s ease-out 1;
+}
+button.active span span:nth-of-type(7) {
+  animation: anim7 0.4s ease-out 1;
+}
+button.active span span:nth-of-type(8) {
+  animation: anim8 0.4s ease-out 1;
+}
+
+@keyframes anim1 {
+  0%{transform: scaleY(0.5);opacity: 0;}
+  50%{transform: translateY(-10px) scaleY(1.4); opacity: 1;}
+  100%{transform: translateY(-20px) scaleY(0.5);opacity: 0;}
+}
+@keyframes anim2 {
+  0%{transform: scaleY(1);opacity: 0;}
+  50%{transform: translateY(10px) scaleY(1.4); opacity: 1;}
+  100%{transform: translateY(20px) scaleY(0.5);opacity: 0;}
+}
+@keyframes anim3 {
+  0%{transform: rotate(90deg) scaleX(0.5);opacity: 0;}
+  50%{transform: rotate(90deg) translateY(10px) scaleX(1.4); opacity: 1;}
+  100%{transform: rotate(90deg) translateY(20px) scaleX(0.5);opacity: 0;}
+}
+@keyframes anim4 {
+  0%{transform: rotate(90deg) scaleX(0.5);opacity: 0;}
+  50%{transform: rotate(90deg) translateY(-10px) scaleX(1.4); opacity: 1;}
+  100%{transform: rotate(90deg) translateY(-20px) scaleX(0.5);opacity: 0;}
+}
+@keyframes anim5 {
+  0%{transform: rotate(-30deg) scaleY(0.5);opacity: 0;}
+  50%{transform: rotate(-30deg) translateY(-8px) scaleY(1.4); opacity: 1;}
+  100%{transform: rotate(-30deg) translateY(-16px) scaleY(0.5);opacity: 0;}
+}
+@keyframes anim6 {
+  0%{transform: rotate(30deg) scaleY(0.5);opacity: 0;}
+  50%{transform: rotate(30deg) translateY(-8px) scaleY(1.4); opacity: 1;}
+  100%{transform: rotate(30deg) translateY(-16px) scaleY(0.5);opacity: 0;}
+}
+@keyframes anim7 {
+  0%{transform: rotate(30deg) scaleY(0.5);opacity: 0;}
+  50%{transform: rotate(30deg) translateY(8px) scaleY(1.4); opacity: 1;}
+  100%{transform: rotate(30deg) translateY(16px) scaleY(0.5);opacity: 0;}
+}
+@keyframes anim8 {
+  0%{transform: rotate(-30deg) scaleY(0.5);opacity: 0;}
+  50%{transform: rotate(-30deg) translateY(8px) scaleY(1.4); opacity: 1;}
+  100%{transform: rotate(-30deg) translateY(16px) scaleY(0.5);opacity: 0;}
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+
+function checkeverything(data){
+	if(data === 'True'){
+		  document.getElementById("status").innerHTML = "Pc is asleep"
+		  document.getElementById("wakepc").hidden = false
+		  document.getElementById("sleeppc").hidden = true
+		  document.getElementById("parotdiv").hidden = true
+	}
+	else{
+			  document.getElementById("status").innerHTML = "Pc is awake"
+			  document.getElementById("wakepc").hidden = true
+			  document.getElementById("sleeppc").hidden = false
+			  document.getElementById("parotdiv").hidden = false
+	}
+}
+
+function checkParotTimeInfo(){
+	$.get("parot-time-info", function(data, status){
+		console.log(data)
+		if(parseInt(data) > 0){
+			document.getElementById("countTime").innerHTML = data
+			document.getElementById("playParot").hidden = true	
+			document.getElementById("stopParot").hidden = false	
+			document.getElementById("parotStatus").innerHTML = 'parrot is playing'
+		}else{
+			document.getElementById("playParot").hidden = false
+			document.getElementById("stopParot").hidden = true	
+			document.getElementById("parotStatus").innerHTML = ''
+			document.getElementById("countTime").innerHTML = ''
+		}
+	});
+}
+
+
+
+$(document).ready(function(){
+	$(".cta").click(function(){
+  $(this).addClass("active").delay(300).queue(function(next){
+    $(this).removeClass("active");
+    next();
+  });
+});
+	$.get("get-sleep-status", function(data, status){
+		checkeverything(data)
+	});
+
+	checkParotTimeInfo()
+
+
+	
+	
+	$("#wakepc").click(function(){
+		$.get("press", function(data1, status1){
+				$.get("get-sleep-status", function(data, status){
+					checkeverything(data)
+				});
+		});
+	});
+
+	$("#sleeppc").click(function(){
+		$.get("sleepPc", function(data, status){
+			if(data === 'sleeping'){
+				checkeverything('True')
+			}else{
+				document.getElementById("status").innerHTML = data
+			}
+		});
+	});
+
+
+	$("#playParot").click(function(){
+		$.get("playParot", function(data, status){
+			if(data === 'playing'){
+				document.getElementById("parotStatus").innerHTML = data	
+				document.getElementById("playParot").hidden = true
+				document.getElementById("stopParot").hidden = false	
+				checkParotTimeInfo()		
+			}else{
+				document.getElementById("parotStatus").innerHTML = 'error playing parot'			
+			}		
+		});
+	});
+
+
+	$("#stopParot").click(function(){
+		$.get("stopParot", function(data,status){
+			if(data === 'Stoped parrot playing'){
+				document.getElementById("parotStatus").innerHTML = data
+				checkParotTimeInfo()
+			}else{
+				document.getElementById("parotStatus").innerHTML = 'error stoping parrot'	
+			}
+		});	
+	});
+	
+	
+});
+
+
+
+
+</script>
+</head>
+<body>
+<h1 id="status"></h1>
+
+
+ <div class="box">
+    <button class="cta" id="wakepc">
+      <a>Turn on PC</a>
+      <span class="shape">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <button class="cta" id="sleeppc" hidden="true">
+      <a>Turn off PC</a>
+      <span class="shape">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+
+<div id="parotdiv">
+	<h1 id="parotStatus"></h1>
+ <div class="box">
+    <button class="cta" id="playParot">
+      <a>Play Parot audio</a>
+      <span class="shape">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <button class="cta" id="stopParot" hidden="true">
+      <a>Stop Parot audio</a>
+      <span class="shape">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+
+<h1 id="countTime"></h1>
+
+</div>
+
+
+</body>
+</html>
