@@ -1,10 +1,15 @@
 
 import RPi.GPIO as GPIO
 from flask import Flask, json, render_template
+from flask_cors import CORS, cross_origin
 from datetime import datetime, timedelta
 import time
 import requests
 api = Flask(__name__, static_folder='../pc-app/build/static', template_folder='../pc-app/build')
+
+cors = CORS(app)
+api.config['CORS_HEADERS'] = 'Content-Type'
+
 
 servoPin = 12
 
@@ -34,17 +39,20 @@ setup()
 
 
 @api.route('/set-sleep-status/<status>', methods=['GET'])
+@cross_origin()
 def set_sleep_status(status):
     global sleeping
     sleeping = status
     return "status = " + str(sleeping) 
 
 @api.route('/get-sleep-status', methods=['GET'])
+@cross_origin()
 def get_sleep_status():
     return str(sleeping)
 
 
 @api.route('/angle/<anglenum>', methods=['GET'])
+@cross_origin()
 def angle(anglenum):
     global presscount
     change_angle(int(anglenum))
@@ -55,6 +63,7 @@ def angle(anglenum):
 
 
 @api.route('/press', methods=['GET'])
+@cross_origin()
 def press():
     global presscount, sleeping
     change_angle(130)
@@ -65,6 +74,7 @@ def press():
     return "Pc should be on now, attempt: " + str(presscount)
 
 @api.route('/playParot', methods=['GET'])
+@cross_origin()
 def playParot():
     global timer
     res = requests.get('http://192.168.1.105/playParot')
@@ -73,6 +83,7 @@ def playParot():
 
 
 @api.route('/parot-time-info', methods=['GET'])
+@cross_origin()
 def gettimeinfo():
     global timer
     if(timer == None):
@@ -84,6 +95,7 @@ def gettimeinfo():
     return '0'
 
 @api.route('/reset-timer', methods=['GET'])
+@cross_origin()
 def resetTimer():
     global timer
     timer = None
@@ -91,6 +103,7 @@ def resetTimer():
 
 
 @api.route('/stopParot', methods=['GET'])
+@cross_origin()
 def stopParot():
     res = requests.get('http://192.168.1.105/stop-parot')
     message = res.content
@@ -103,6 +116,7 @@ def stopParot():
 
 
 @api.route('/sleepPc', methods=['GET'])
+@cross_origin()
 def sleepPc():
     stopParot()
     res = requests.get('http://192.168.1.105/sleep')
@@ -114,6 +128,7 @@ def sleepPc():
     return 'error pc not asleep'
     
 @api.route('/', methods=['GET'])
+@cross_origin()
 def main_shit():
     return render_template("index.html", token="Hello Flask+React")
 
