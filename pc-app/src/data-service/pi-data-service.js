@@ -8,4 +8,8 @@ export class PiDataService {
     press() {
         return axios.get(this.url + '/press')
     }
+
+    turnOff() {
+        return axios.get(this.url + '/sleepPc')
+    }
 }

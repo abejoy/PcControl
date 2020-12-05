@@ -96,7 +96,7 @@ def resetTimer():
 
 @api.route('/stopParot', methods=['GET'])
 def stopParot():
-    res = requests.get('http://192.168.1.105/stop-parot')
+    res = requests.get('http://192.168.0.6/stop-parot')
     message = res.content
     
     if(message == b'stoped'):
@@ -109,7 +109,7 @@ def stopParot():
 @api.route('/sleepPc', methods=['GET'])
 def sleepPc():
     stopParot()
-    res = requests.get('http://192.168.1.105/sleep')
+    res = requests.get('http://192.168.0.6/sleep')
     message = res.content
     
     if(message == b'sleeping'):
