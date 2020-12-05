@@ -12,13 +12,13 @@ const Main = () => {
     const [pcStatus, setPcStatus] = useState(false);
 
     useEffect(() => {
-
-    }, [])
+        updateStatus();
+    }, [pcStatus]);
 
     const turnOff = async () => {
         const res = await new PiDataService().turnOff();
         if (res === 'sleeping') {
-            setPcStatus(false)
+            updateStatus();
         }
     }
     
@@ -28,10 +28,15 @@ const Main = () => {
         const res = await new PiDataService().press();
     
         if (res) {
-            setPcStatus(true);
+            updateStatus();
         } else {
-            setPcStatus(false)
+            updateStatus();
         }
+    }
+
+    const updateStatus = async () => {
+        const status = await new PiDataService().getSleepStatus();
+        setPcStatus(!status);
     }
 
     return (
