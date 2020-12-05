@@ -108,11 +108,13 @@ def stopParot():
 
 @api.route('/sleepPc', methods=['GET'])
 def sleepPc():
+    global sleeping
     stopParot()
     res = requests.get('http://192.168.0.6/sleep')
     message = res.content
     
     if(message == b'sleeping'):
+        sleeping = True
         return 'sleeping'
     
     return 'error pc not asleep'
