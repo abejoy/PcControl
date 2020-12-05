@@ -17,7 +17,7 @@ const Main = () => {
 
     const turnOff = async () => {
         const res = await new PiDataService().turnOff();
-        if (res === 'sleeping') {
+        if (res) {
             updateStatus();
         }
     }
