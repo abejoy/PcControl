@@ -44,13 +44,13 @@ const Main = () => {
             <Row>
                 {!pcStatus && (
                     <Col>
-                        <Button onClick={pressButtonClick}>Turn On Pc</Button>
+                        <Button onClick={pressButtonClick}>Turn On the Pc</Button>
                     </Col>
                 )}
 
                 {pcStatus && (
                     <Col>
-                        <Button onClick={turnOff}>Turn Off Pc</Button>
+                        <Button onClick={turnOff}>Turn Off the Pc</Button>
                     </Col>
                 )}
             </Row>
