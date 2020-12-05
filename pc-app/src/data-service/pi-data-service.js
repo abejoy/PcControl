@@ -15,6 +15,6 @@ export class PiDataService {
 
     async getSleepStatus() {
         const res = await axios.get(this.url + '/get-sleep-status');
-        return res.data === 'True';
+        return !(res.data === 'False');
     }
 }
