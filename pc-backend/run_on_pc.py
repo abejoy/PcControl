@@ -38,4 +38,4 @@ def sleepPc():
     return 'sleeping'
 
 
-api.run(host='0.0.0.0', port=80)
+api.run(host='0.0.0.0', port=5000)
