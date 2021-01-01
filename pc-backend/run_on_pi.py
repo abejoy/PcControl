@@ -1,7 +1,7 @@
 
 
 import RPi.GPIO as GPIO
-from flask import Flask, json, render_template
+from flask import Flask, json, render_template, request
 from flask_cors import CORS, cross_origin
 from datetime import datetime, timedelta
 import time
@@ -130,6 +130,13 @@ def sleepPc():
         return 'sleeping'
     
     return 'error pc not asleep'
+
+
+@api.route('/contact-form', methods=['GET'])
+def contactMe():
+    content = request.get_json()
+    print(content)
+    return 'OK'
     
 @api.route('/', methods=['GET'])
 def main_shit():

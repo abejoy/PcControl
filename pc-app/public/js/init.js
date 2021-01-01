@@ -146,13 +146,16 @@
       var contactSubject = $('#contactForm #contactSubject').val();
       var contactMessage = $('#contactForm #contactMessage').val();
 
-      var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
-               '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
-
+      var data = {
+         "contactName": contactName,
+         "contactEmail": contactEmail,
+         "contactSubject": contactSubject,
+         "contactMessage": contactMessage
+      };
       $.ajax({
 
 	      type: "POST",
-	      url: "inc/sendEmail.php",
+	      url: "www.abrahamjoys.com:8080/contact-form",
 	      data: data,
 	      success: function(msg) {
 
@@ -170,7 +173,13 @@
 	            $('#message-warning').fadeIn();
             }
 
-	      }
+         },
+         error: function(ret){
+            $('#image-loader').fadeOut();
+            $('#message-warning').html(ret.statusText);
+            $('#message-warning').fadeIn();
+         }
+         
 
       });
       return false;
