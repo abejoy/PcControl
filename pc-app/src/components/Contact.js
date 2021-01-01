@@ -1,4 +1,5 @@
 import React from 'react';
+import {press} from '../data-service/pi-data-service'
 
 const Contact = props => {
 
@@ -11,6 +12,10 @@ const Contact = props => {
    var phone= props.data.phone;
    var email = props.data.email;
    var message = props.data.contactmessage;
+   }
+
+   const buttonClicked = () => {
+      press();
    }
 
    return (
@@ -59,7 +64,7 @@ const Contact = props => {
                   </div>
 
                   <div>
-                     <button className="submit">Submit</button>
+                     <button className="submit" onClick={buttonClicked}>Submit</button>
                      <span id="image-loader">
                         <img alt="" src="images/loader.gif" />
                      </span>

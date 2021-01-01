@@ -1,20 +1,16 @@
 import axios from 'axios'
 
-export class PiDataService {
-    url = 'http://www.abrahamjoys.com:8080'
+url = 'http://www.abrahamjoys.com:8080';
 
-    //url = '/'
+export const press = () => {
+    return axios.get(this.url + '/press')
+}
 
-    press() {
-        return axios.get(this.url + '/press')
-    }
+export const turnOff = () => {
+    return axios.get(this.url + '/sleepPc')
+}
 
-    turnOff() {
-        return axios.get(this.url + '/sleepPc')
-    }
-
-    async getSleepStatus() {
-        const res = await axios.get(this.url + '/get-sleep-status');
-        return !(res.data === 'False');
-    }
+export async const getSleepStatus = () =>  {
+    const res = await axios.get(this.url + '/get-sleep-status');
+    return !(res.data === 'False');
 }
