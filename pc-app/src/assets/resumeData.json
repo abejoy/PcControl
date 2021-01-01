@@ -1,0 +1,119 @@
+{
+  "main": {
+    "name":"Abraham Joys",
+    "occupation":"Software Developer",
+    "description":"During my degree I have been described by my peers as a hardworking individual. This stems from the fact that I am currently: running a few app projects, juggling my course rep duties, and maintained a 74% in year 2. With Mathematics and Computer Science being my main interests, I have learnt how to think critically and analytically, to solve problems in a creative manner and how to get complex tasks done efficiently. I am willing to take any training necessary to learn new skills and better myself.",
+    "image":"profilepic.jpg",
+    "bio":"I am just a really techy person who enjoys building stuff",
+    "contactmessage":"Please email me if you would like to get in touch",
+    "email": "abrahamjoys98@gmail.com",
+    "phone": "07551199833",
+    "address":{
+      "street":"Queens Road",
+      "city":"Slough",
+      "state":"Berkshire",
+      "zip": "SL1 3QW"
+    },
+    "website": "http://www.abrahamjoys.com",
+    "resumedownload":"./CV.pdf",
+    "social":[
+      {
+        "name":"facebook",
+        "url":"http://facebook.com/abe.joys/",
+        "className":"fa fa-facebook"
+      },
+      {
+        "name":"twitter",
+        "url":"http://twitter.com/aham_joy",
+        "className":"fa fa-twitter"
+      },
+      {
+        "name":"linkedin",
+        "url":"https://www.linkedin.com/in/abraham-joys-2698a6192/",
+        "className":"fa fa-linkedin"
+      },
+      {
+        "name":"instagram",
+        "url":"https://www.instagram.com/aham_joy/",
+        "className":"fa fa-instagram"
+      },
+      {
+        "name":"github",
+        "url":"http://github.com/abejoy",
+        "className":"fa fa-github"
+      }
+    ]
+  },
+  "resume":{
+    "skillmessage":"These are my Skills",
+    "education":[
+      {
+        "school":"University of Leicester",
+        "degree":"BSc Computer Science with Year in Industry",
+        "graduated":"September 2020",
+        "description":"Was Course Representative: Responsible for collecting and portraying feedback to university lectures, to help improve education process"
+      },
+      {
+        "school":"Herschel Grammar School, Slough",
+        "degree":"A level: Mathematics, Further Mathematics, Computing",
+        "graduated":"July 2016"
+      }
+    ],
+    "work":[
+      {
+        "company":"Sky",
+        "title":"Assioate Software Developer",
+        "years":"September 2020 - Present",
+        "description":"Working as a front end developer on SkyQ Tv apps"
+      },
+      {
+        "company":"Contemi Solutions AS",
+        "title":"Placement Developer",
+        "years":"August 2018 - August 2019",
+        "description":"Worked as a full stack developer on various Angular applications"
+      }
+    ],
+    "skills":[
+      {
+        "name":"Java",
+        "level":"90%"
+      },
+      {
+        "name":"Python",
+        "level":"90%"
+      },
+      {
+        "name":"React",
+        "level":"80%"
+      },
+      {
+        "name":"JavaScript, TypeScript, Angular",
+        "level":"80%"
+      },
+      {
+        "name":"HTML5, CSS",
+        "level":"80%"
+      },
+      {
+        "name":"Spring",
+        "level":"60%"
+      },
+      {
+        "name":"MySql, Docker, AWS EC2",
+        "level":"70%"
+      }
+    ]
+  },
+  "testimonials":{
+    "testimonials":[
+      {
+        "text":"Abe is one of the best people I know",
+        "user":"Rishi Bhugobaun"
+      },
+      {
+        "text":"That Abraham Joys must be one of the most brilliant developers I've ever met! It is amazing that nobody has hired him yet. Hey you, you should hire this guy, he may be fresh out of University and have zero on the job experience but I am confident that he will be one of your best developers in no time!",
+        "user":"Steve Wozniak... impersonator"
+      }
+    ]
+  }
+}

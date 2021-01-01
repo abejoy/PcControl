@@ -6,6 +6,7 @@ from flask_cors import CORS, cross_origin
 from datetime import datetime, timedelta
 import time
 import requests
+import os
 api = Flask(__name__, static_folder='../pc-app/build/static', template_folder='../pc-app/build')
 CORS(api)
 
@@ -33,6 +34,14 @@ def change_angle(angle):
 def destroy():
     p.stop()
     GPIO.cleanup()
+
+def isJellyFinRunning():
+    return os.popen("sudo systemctl is-active jellyfin").read() == "active"
+
+def startJelyFin():
+    if(!isJellyFinRunning()):
+        os.system("sudo systemctl start jellyfin");
+        
 
 setup()
 
