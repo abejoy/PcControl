@@ -15,3 +15,8 @@ export const getSleepStatus = async () =>  {
     const res = await axios.get(url + '/get-sleep-status');
     return !(res.data === 'False');
 }
+
+export const submitForm = async (formdata) => {
+    console.log('i got this dar', formdata)
+    axios.post(url + '/contact-form', formdata);
+}

@@ -1,21 +1,31 @@
-import React from 'react';
-import {press} from '../data-service/pi-data-service'
+import React, { useState } from 'react';
+import {press, submitForm} from '../data-service/pi-data-service'
 
 const Contact = props => {
 
+   const [formData, setFormData] = useState({});
+
+
    if(props.data){
-   var name = props.data.name;
-   var street = props.data.address.street;
-   var city = props.data.address.city;
-   var state = props.data.address.state;
-   var zip = props.data.address.zip;
-   var phone= props.data.phone;
-   var email = props.data.email;
-   var message = props.data.contactmessage;
+      var name = props.data.name;
+      var street = props.data.address.street;
+      var city = props.data.address.city;
+      var state = props.data.address.state;
+      var zip = props.data.address.zip;
+      var phone= props.data.phone;
+      var email = props.data.email;
+      var message = props.data.contactmessage;
    }
 
-   const buttonClicked = () => {
-      press();
+   const buttonClicked = e => {
+      e.preventDefault();
+      submitForm(formData);
+   }
+
+   const handlechange = e => {
+      formData[e.target.id] = e.target.value;
+      setFormData(formData);
+      console.log(formData);
    }
 
    return (
@@ -40,31 +50,31 @@ const Contact = props => {
          <div className="row">
             <div className="eight columns">
 
-               <form action="" method="post" id="contactForm" name="contactForm">
+               <form onSubmit={buttonClicked} id="contactForm" name="contactForm">
                <fieldset>
 
                   <div>
                      <label htmlFor="contactName">Name <span className="required">*</span></label>
-                     <input type="text" defaultValue="" size="35" id="contactName" name="contactName" />
+                     <input type="text" defaultValue="" size="35" id="contactName" name="contactName" onChange={handlechange}/>
                   </div>
 
                   <div>
                      <label htmlFor="contactEmail">Email <span className="required">*</span></label>
-                     <input type="text" defaultValue="" size="35" id="contactEmail" name="contactEmail" />
+                     <input type="text" defaultValue="" size="35" id="contactEmail" name="contactEmail" onChange={handlechange} />
                   </div>
 
                   <div>
                      <label htmlFor="contactSubject">Subject</label>
-                     <input type="text" defaultValue="" size="35" id="contactSubject" name="contactSubject" />
+                     <input type="text" defaultValue="" size="35" id="contactSubject" name="contactSubject" onChange={handlechange} />
                   </div>
 
                   <div>
                      <label htmlFor="contactMessage">Message <span className="required">*</span></label>
-                     <textarea cols="50" rows="15" id="contactMessage" name="contactMessage"></textarea>
+                     <textarea cols="50" rows="15" id="contactMessage" name="contactMessage" onChange={handlechange}></textarea>
                   </div>
 
                   <div>
-                     <button className="submit" onClick={buttonClicked}>Submit</button>
+                     <button className="submit">Submit</button>
                      <span id="image-loader">
                         <img alt="" src="images/loader.gif" />
                      </span>

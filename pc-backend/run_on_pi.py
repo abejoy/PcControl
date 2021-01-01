@@ -132,7 +132,7 @@ def sleepPc():
     return 'error pc not asleep'
 
 
-@api.route('/contact-form', methods=['GET'])
+@api.route('/contact-form', methods=['POST'])
 def contactMe():
     content = request.get_json()
     print(content)
