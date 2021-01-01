@@ -4,6 +4,8 @@ import {press, submitForm} from '../data-service/pi-data-service'
 const Contact = props => {
 
    const [formData, setFormData] = useState({});
+   const [errorMessage, setErrorMessage] = useState('');
+   const [successMessage, setSuccessMessage] = useState('');
 
 
    if(props.data){
@@ -18,14 +20,27 @@ const Contact = props => {
    }
 
    const buttonClicked = e => {
+      setErrorMessage('')
+      setSuccessMessage('')
       e.preventDefault();
-      submitForm(formData);
+      console.log(document.getElementById('image-loader'));
+      submitForm(formData).then(msg => {
+         // Message was sent
+         if (msg.data == "OK") {
+            setSuccessMessage(msg.data)
+         }
+         // There was an error
+         else {
+            setErrorMessage('there was an error')
+         }
+      }).catch(err => {
+         setErrorMessage(err.message);
+      });
    }
 
    const handlechange = e => {
       formData[e.target.id] = e.target.value;
       setFormData(formData);
-      console.log(formData);
    }
 
    return (
@@ -82,11 +97,19 @@ const Contact = props => {
                </fieldset>
                </form>
 
-            <div id="message-warning"> Error boy</div>
-               <div id="message-success">
-                  <i className="fa fa-check"></i>Your message was sent, thank you!<br />
-               </div>
+               {
+            errorMessage !== '' &&
+            (<div id="message-warning"> {errorMessage}</div>)
+            }
+
+            {
+            successMessage !== '' &&
+            (               
+            <div id="message-success">
+               <i className="fa fa-check"></i>Your message was sent, thank you!<br />
             </div>
+            )
+            }
 
 
             <aside className="four columns footer-widgets">
@@ -101,6 +124,7 @@ const Contact = props => {
                   </p>
                </div>
             </aside>
+      </div>
       </div>
       </section>
    );

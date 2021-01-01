@@ -17,6 +17,5 @@ export const getSleepStatus = async () =>  {
 }
 
 export const submitForm = async (formdata) => {
-    console.log('i got this dar', formdata)
-    axios.post(url + '/contact-form', formdata);
+    return axios.post(url + '/contact-form', formdata);
 }
