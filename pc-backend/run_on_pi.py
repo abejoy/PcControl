@@ -39,8 +39,11 @@ def isJellyFinRunning():
     return os.popen("sudo systemctl is-active jellyfin").read() == "active"
 
 def startJelyFin():
-    if(!isJellyFinRunning()):
-        os.system("sudo systemctl start jellyfin");
+    if(not isJellyFinRunning()):
+        os.system("sudo systemctl start jellyfin")
+
+
+
         
 
 setup()
