@@ -1,1 +1,2 @@
-sudo python pc-backend/run_on_pi.py
+cd pc=app
+sudo serve -s build -l 80

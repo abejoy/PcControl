@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export class PiDataService {
-    url = 'http://www.abrahamjoys.com'
+    url = 'http://www.abrahamjoys.com:8080'
 
     //url = '/'
 
