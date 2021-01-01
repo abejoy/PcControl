@@ -1,16 +1,17 @@
 import axios from 'axios'
 
-url = 'http://www.abrahamjoys.com:8080';
+const url = 'http://www.abrahamjoys.com:8080';
 
 export const press = () => {
-    return axios.get(this.url + '/press')
+    console.log('i get herer')
+    return axios.get(url + '/press')
 }
 
 export const turnOff = () => {
-    return axios.get(this.url + '/sleepPc')
+    return axios.get(url + '/sleepPc')
 }
 
-export async const getSleepStatus = () =>  {
-    const res = await axios.get(this.url + '/get-sleep-status');
+export const getSleepStatus = async () =>  {
+    const res = await axios.get(url + '/get-sleep-status');
     return !(res.data === 'False');
 }
