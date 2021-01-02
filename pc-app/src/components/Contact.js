@@ -26,7 +26,7 @@ const Contact = props => {
       console.log(document.getElementById('image-loader'));
       submitForm(formData).then(msg => {
          // Message was sent
-         if (msg.data == "OK") {
+         if (msg.data == "OK" || msg.data.includes('AbeFlix')) {
             setSuccessMessage(msg.data)
          }
          // There was an error

@@ -42,13 +42,13 @@ def destroy():
 def isJellyFinRunning():
     return os.popen("sudo systemctl is-active jellyfin").read() == "active"
 
-def startJelyFin():
+def startJeljyFin():
     if(not isJellyFinRunning()):
         os.system("sudo systemctl start jellyfin")
 
-
-
-        
+def stopJellyFin():
+    if(isJellyFinRunning()):
+        os.system("sudo systemctl stop jellyfin")
 
 setup()
 
@@ -138,9 +138,21 @@ def sleepPc():
 
 @api.route('/contact-form', methods=['POST'])
 def contactMe():
+
+
     myemail = 'abrahamjoys98@gmail.com'
     content = request.get_json()
     name = content['contactName']
+
+    if(name == "Start AbeFlix"):
+        startJeljyFin()
+        return "AbeFlix should be Running, visit www.abrahamjoys.com:8096 please remember to stop by typing Stop AbeFlix"
+
+
+    if(name == "Stop AbeFlix"):
+        stopJellyFin()
+        return "AbeFlix should have stoped"
+
     email = content['contactEmail']
     subject = content['contactSubject']
     message = content['contactMessage']
