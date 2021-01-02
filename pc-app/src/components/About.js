@@ -18,7 +18,7 @@ const About = props =>{
    return (
       <section id="about">
       <div className="row">
-         <div className="three columns">
+         <div className="three columns middle">
             <img className="profile-pic"  src={profilepic} alt="Abraham Joys Profile Pic" />
          </div>
          <div className="nine columns main-col">
