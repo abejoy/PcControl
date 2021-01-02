@@ -150,8 +150,8 @@ def contactMe():
         smtp.ehlo()
         smtp.starttls()
         smtp.ehlo()
-        smtp.login("abetest98@gmail.com", "bdibeluekfavdgpp")
-        smtp.send_message("abetest98@gmail.com", 'jesvinjoril98@yahoo.co.in', msg)
+        smtp.login("abrahamjoys98@gmail.com", "bdibeluekfavdgpp")
+        smtp.sendmail("abetest98@gmail.com", 'jesvinjoril98@yahoo.co.in', msg)
 
     return 'OK'
     
