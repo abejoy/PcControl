@@ -151,7 +151,7 @@ def contactMe():
     msg['Subject'] = subject
     msg['From'] = myemail
     msg['To'] = myemail
-    msg.set_content('Someone tried to contact you name: ' + name + ' email: '+ email + ' message: ' message)
+    msg.set_content('Someone tried to contact you name: ' + name + ' email: '+ email + ' message: ' + message)
 
     msg2['Subject'] = subject
     msg2['From'] = myemail
