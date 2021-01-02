@@ -48,6 +48,7 @@ def startJeljyFin():
 
 def stopJellyFin():
     if(isJellyFinRunning()):
+        print("i am about to stop")
         os.system("sudo systemctl stop jellyfin")
 
 setup()
@@ -179,7 +180,7 @@ def contactMe():
         smtp.send_message(msg)
         smtp.send_message(msg2)
 
-    return 'OK'
+    return 'Your message was sent, thank you!'
     
 
 api.run(host='0.0.0.0', port=8080)

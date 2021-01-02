@@ -26,7 +26,7 @@ const Contact = props => {
       console.log(document.getElementById('image-loader'));
       submitForm(formData).then(msg => {
          // Message was sent
-         if (msg.data == "OK" || msg.data.includes('AbeFlix')) {
+         if (msg.data == "Your message was sent, thank you!" || msg.data.includes('AbeFlix')) {
             setSuccessMessage(msg.data)
          }
          // There was an error
@@ -106,7 +106,7 @@ const Contact = props => {
             successMessage !== '' &&
             (               
             <div id="message-success">
-               <i className="fa fa-check"></i>Your message was sent, thank you!<br />
+               <i className="fa fa-check"></i>{successMessage}<br />
             </div>
             )
             }
