@@ -8,8 +8,7 @@ import time
 import requests
 import os
 import smtplib
-
-
+from email.message import EmailMessage
 
 
 api = Flask(__name__)
@@ -139,19 +138,34 @@ def sleepPc():
 
 @api.route('/contact-form', methods=['POST'])
 def contactMe():
+    myemail = 'abrahamjoys98@gmail.com'
     content = request.get_json()
     name = content['contactName']
     email = content['contactEmail']
     subject = content['contactSubject']
     message = content['contactMessage']
-    msg = f'Subject: {subject}\n\n{message}'
+    msg = EmailMessage()
+    msg2 = EmailMessage()
+
+
+    msg['Subject'] = subject
+    msg['From'] = myemail
+    msg['To'] = myemail
+    msg.set_content('Someone tried to contact you name: ' + name + ' email: '+ email + ' message: ' message)
+
+    msg2['Subject'] = subject
+    msg2['From'] = myemail
+    msg2['To'] = email
+    msg2.set_content('Thankyou for getting in contact with me ' + name + ' Abraham will get back to you')
+
 
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.ehlo()
         smtp.starttls()
         smtp.ehlo()
         smtp.login("abetest98@gmail.com", "bdibeluekfavdgpp")
-        smtp.send_message("abetest98@gmail.com", 'jesvinjoril98@yahoo.co.in', msg)
+        smtp.send_message(msg)
+        smtp.send_message(msg2)
 
     return 'OK'
     
