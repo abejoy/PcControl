@@ -7,6 +7,11 @@ from datetime import datetime, timedelta
 import time
 import requests
 import os
+import smtplib
+
+
+
+
 api = Flask(__name__)
 CORS(api)
 
@@ -135,12 +140,21 @@ def sleepPc():
 @api.route('/contact-form', methods=['POST'])
 def contactMe():
     content = request.get_json()
-    print(content)
+    name = content['contactName']
+    email = content['contactEmail']
+    subject = content['contactSubject']
+    message = content['contactMessage']
+    msg = f'Subject: {subject}\n\n{message}'
+
+    with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.ehlo()
+        smtp.login("abetest98@gmail.com", "sumasuja")
+        smtp.send_message("abetest98@gmail.com", 'jesvinjoril98@yahoo.co.in', msg)
+
     return 'OK'
     
-@api.route('/', methods=['GET'])
-def main_shit():
-    return render_template("index.html", token="Hello Flask+React")
 
 api.run(host='0.0.0.0', port=8080)
 destroy()
