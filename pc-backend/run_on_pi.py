@@ -40,7 +40,7 @@ def destroy():
     GPIO.cleanup()
 
 def isJellyFinRunning():
-    return os.popen("sudo systemctl is-active jellyfin").read() == "active"
+    return "active" in os.popen("sudo systemctl is-active jellyfin").read()
 
 def startJeljyFin():
     if(not isJellyFinRunning()):
