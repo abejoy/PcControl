@@ -176,7 +176,7 @@ def contactMe():
         smtp.ehlo()
         smtp.starttls()
         smtp.ehlo()
-        smtp.login("abrahamjoys98@gmail.com", "bdibeluekfavdgpp")
+        smtp.login("jesvintest@gmail.com", "potato123@")
         smtp.send_message(msg)
         smtp.send_message(msg2)
 
