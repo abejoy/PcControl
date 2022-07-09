@@ -22,8 +22,8 @@ function App() {
     
     <div className="App">
       <Header data={resumeData.main}/>
-      <About data={resumeData.main}/>
-      <Resume data={resumeData.resume}/>
+      {/* <About data={resumeData.main}/> */}
+      {/* <Resume data={resumeData.resume}/> */}
       <Testimonials data={resumeData.testimonials}/>
       <Contact data={resumeData.main}/>
       <Footer data={resumeData.main}/>
