@@ -168,7 +168,10 @@ def contactMe():
     msg['Subject'] = subject
     msg['From'] = myemail
     msg['To'] = "jesvinjoril98@yahoo.co.in"
-    msg.set_content('Someone tried to contact you name: ' + name + ' email: '+ email + ' message: ' + message + ' phone: ' + phone + ' parent phone: ' + parentPhone + 'Date of Birth: ' + dob + ' unit: ' + unit)
+    msg.set_content('Yo Albert,\nprobably wrorth putting this email spam or a seprate folder as you can get bombarded with this email every time someone registers\nalso check the attachment for the spreadsheet of the participants so far \n the latest entry is: ' + name + ' email: '+ email + ' message: ' + message + ' phone: ' + phone + ' parent phone: ' + parentPhone + 'Date of Birth: ' + dob + ' unit: ' + unit)
+    with open('test.xls', 'rb') as content_file:
+        content = content_file.read()
+        msg.add_attachment(content, maintype='application', subtype='xls', filename='registered_camp_members.pdf')
 
     msg2['Subject'] = subject
     msg2['From'] = myemail
