@@ -1,5 +1,4 @@
 import pandas as pd
-import openpyxl
 from datetime import date
 
 myHeader = ["name", "email", "contactNum", "parentContactNum" ,"dob", "age", "registeredDate", "unitName"]
