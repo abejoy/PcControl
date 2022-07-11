@@ -9,7 +9,7 @@ def write(df):
     writer.save()
 
 def read():
-    return pd.read_excel('test.xls', engine='openpyxl')
+    return pd.read_excel('test.xls')
 
 def addRow(myrow):
     try:
