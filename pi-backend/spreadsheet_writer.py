@@ -1,4 +1,5 @@
 import pandas as pd
+import openpyxl
 from datetime import date
 
 myHeader = ["name", "email", "contactNum", "parentContactNum" ,"dob", "age", "registeredDate", "unitName"]
@@ -29,7 +30,7 @@ def addRow(myrow):
 
 def main():
     today = date.today()
-    addRow(myrow = ["tommy", "jesvddinjoril98@yahoo.co.in", "07744333222", "0553534342", "24/02/1998", 24, today, "NWLU"]);
+    addRow(myrow = ["tommy", "jesvddminjoril98@yahoo.co.in", "07744333222", "0553534342", "24/02/1998", 24, today, "NWLU"]);
     print(read())
 
 if __name__ == "__main__":
