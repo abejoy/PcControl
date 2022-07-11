@@ -1,5 +1,7 @@
 package com.pccontroll.backend;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,23 +16,19 @@ public class User {
     private String datetoday;
     private String unit;
 
-    public User(String contactName, String contactEmail, String contactPhone, String parentPhone, String dob, String unit) {
+    public User(String contactName, String contactEmail, String contactPhone, String parentPhone, String dob, String age, String unit) {
         this.contactName = contactName;
         this.contactEmail = contactEmail;
         this.contactPhone = contactPhone;
         this.parentPhone = parentPhone;
         this.dob = dob;
-        this.age = this.calculateAge(dob);
+        this.age = age;
         this.datetoday = new Date().toString();
         this.unit = unit;
     }
 
     public User (String contactEmail) {
         this.contactEmail = contactEmail;
-    }
-
-    private String calculateAge(String dob) {
-        return "24";
     }
 
     private static List<String> getHeader() {

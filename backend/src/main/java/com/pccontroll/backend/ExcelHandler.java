@@ -49,6 +49,10 @@ public class ExcelHandler
             if (emailExists) {
                 return "email already exists";
             }
+
+            if(user.getUnit() == null ) {
+                user.setUnit("nwl");
+            }
             int lastRow=worksheet.getLastRowNum();
             Row row = worksheet.createRow(++lastRow);
 
@@ -115,7 +119,7 @@ public class ExcelHandler
 
     public static void main(String[] args)
     {
-        User myUser1 = new User("Mat", "Mddat@gmail.com", "07555374636", "384367467583", "1998-02-24", "nwl");
+        User myUser1 = new User("Mat", "Mddat@gmail.com", "07555374636", "384367467583", "1998-02-24", "23", "nwl");
         new ExcelHandler().addUser(myUser1);
     }
 }

@@ -15,7 +15,7 @@ public class BackendApplication {
 
 	@GetMapping("/hello")
 	public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
-		User myUser1 = new User("Tom", "tom@gmail.com", "07555374636", "384367467583", "1998-02-24", "nwl");
+		User myUser1 = new User("Tom", "tom@gmail.com", "07555374636", "384367467583", "1998-02-24", "24", "nwl");
 		String potato = new ExcelHandler().addUser(myUser1);
 		return String.format("Hello %s!", potato);
 	}
