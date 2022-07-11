@@ -16,7 +16,9 @@ import java.util.*;
 public class ExcelHandler
 {
 
-    String FILEPATH = "/home/docker/data/";
+    private String FILEPATH = "/home/docker/data/";
+    public String THEFILE = FILEPATH + "registration.xls";
+
 
     private boolean doesEmailExist (XSSFSheet mySheet, String email) {
         Iterator<Row> rowIterator = mySheet.iterator();
@@ -39,7 +41,7 @@ public class ExcelHandler
     public String addUser(User user){
         try
         {
-            FileInputStream myxls = new FileInputStream(FILEPATH + "registration.xls");
+            FileInputStream myxls = new FileInputStream(THEFILE);
 
 
             XSSFWorkbook sheet = new XSSFWorkbook(myxls);
@@ -62,7 +64,7 @@ public class ExcelHandler
                 cell.setCellValue(stringUser.get(cellNum));
             }
             myxls.close();
-            FileOutputStream output_file =new FileOutputStream(new File(FILEPATH + "registration.xls"));
+            FileOutputStream output_file =new FileOutputStream(new File(THEFILE));
             //write changes
             sheet.write(output_file);
             output_file.close();
@@ -104,7 +106,7 @@ public class ExcelHandler
         try
         {
             //Write the workbook in file system
-            FileOutputStream out = new FileOutputStream(new File(FILEPATH + "registration.xls"));
+            FileOutputStream out = new FileOutputStream(new File(THEFILE));
             workbook.write(out);
             out.close();
             System.out.println("registration.xlsx written successfully on disk.");

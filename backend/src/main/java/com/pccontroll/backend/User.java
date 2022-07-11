@@ -16,6 +16,8 @@ public class User {
     private String datetoday;
     private String unit;
 
+    private String contactMessage;
+
     public User(String contactName, String contactEmail, String contactPhone, String parentPhone, String dob, String age, String unit) {
         this.contactName = contactName;
         this.contactEmail = contactEmail;
@@ -123,5 +125,18 @@ public class User {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public String getContactMessage() {
+        return contactMessage;
+    }
+
+    public void setContactMessage(String contactMessage) {
+        this.contactMessage = contactMessage;
+    }
+
+    @Override
+    public String toString() {
+        return this.getContactName() + " from " + this.getUnit() + " unit" + "\ncontact number: " + this.getContactPhone() + "\nparents contact number: " + this.getParentPhone() + "\nemail: " + this.getContactEmail() + "\nage: " + this.getAge() + "\nthier special message: " + this.getContactMessage();
     }
 }

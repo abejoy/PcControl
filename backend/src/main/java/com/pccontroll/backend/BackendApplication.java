@@ -22,7 +22,26 @@ public class BackendApplication {
 
 	@PostMapping("/contact-form")
 	public String contactForm(@RequestBody User user) {
-		return new ExcelHandler().addUser(user);
+		String fileSaveMessage =  new ExcelHandler().addUser(user);
+		SendMail mailSender = new SendMail();
+
+		String userMessage = "Dear " + user.getContactName() + ",\nthankyou for registering for the LKCYL camp, you will need to now give us money fam £25 otherwise you cant come \nKind Regards,\nLKCYL team";
+		String adminMessage = "Yo guys,\nyou will keep getting this email every time someone registers but we are doing this for logging pourposes so that no data gets lost\nIt might be a good idea to move all these to a seprate folder so that we dont get spammed\n\nthe person registered for the camp is" + user.toString() + "\n\n\n also check out the attachment in this email";
+
+		//send to the person
+		String senttoperson = mailSender.sendMail(user, false, userMessage);
+
+		//send to me
+		User me = new User("jesvinjoril98@yahoo.co.in");
+		String senttome = mailSender.sendMail(me, true, adminMessage);
+
+		String successMessage = "Sent message successfully....";
+		if(senttome.equals(successMessage) && senttoperson.equals(successMessage)) {
+			return fileSaveMessage;
+		}
+
+		return "email failure";
+
 	}
 
 
