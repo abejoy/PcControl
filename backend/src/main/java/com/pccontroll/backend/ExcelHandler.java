@@ -37,7 +37,7 @@ public class ExcelHandler
     public String addUser(User user){
         try
         {
-            FileInputStream myxls = new FileInputStream("/home/pi/Documents/PcControl/pi-backend/registration.xls");
+            FileInputStream myxls = new FileInputStream("registration.xls");
 
 
             XSSFWorkbook sheet = new XSSFWorkbook(myxls);
@@ -56,7 +56,7 @@ public class ExcelHandler
                 cell.setCellValue(stringUser.get(cellNum));
             }
             myxls.close();
-            FileOutputStream output_file =new FileOutputStream(new File("/home/pi/Documents/PcControl/pi-backend/registration.xls"));
+            FileOutputStream output_file =new FileOutputStream(new File("registration.xls"));
             //write changes
             sheet.write(output_file);
             output_file.close();
