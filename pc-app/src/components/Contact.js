@@ -53,19 +53,19 @@ const Contact = props => {
       const frontEndErrorMessage = doChecks();
 
       if (frontEndErrorMessage === "") {
-         // submitForm(formData).then(msg => {
-         //    // Message was sent
-         //    if (msg.data == "Your message was sent, thank you!" || msg.data.includes('AbeFlix')) {
-         //       setSuccessMessage(msg.data)
-         //    }
-         //    // There was an error
-         //    else {
-         //       setErrorMessage('there was an error')
-         //    }
-         // }
-         // ).catch(err => {
-         //    setErrorMessage(err.message);
-         // });
+         submitForm(formData).then(msg => {
+            // Message was sent
+            if (msg.data == "Your message was sent, thank you!" || msg.data.includes('AbeFlix')) {
+               setSuccessMessage(msg.data)
+            }
+            // There was an error
+            else {
+               setErrorMessage('there was an error')
+            }
+         }
+         ).catch(err => {
+            setErrorMessage(err.message);
+         });
       } else {
          setErrorMessage(frontEndErrorMessage);
       }
