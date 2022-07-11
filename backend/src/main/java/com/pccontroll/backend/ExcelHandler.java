@@ -58,7 +58,7 @@ public class ExcelHandler
                 cell.setCellValue(stringUser.get(cellNum));
             }
             myxls.close();
-            FileOutputStream output_file =new FileOutputStream(new File(FILEPATH + "/home/docker/data/registration.xls"));
+            FileOutputStream output_file =new FileOutputStream(new File(FILEPATH + "registration.xls"));
             //write changes
             sheet.write(output_file);
             output_file.close();
