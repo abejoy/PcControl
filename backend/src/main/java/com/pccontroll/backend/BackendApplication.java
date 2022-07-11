@@ -23,6 +23,9 @@ public class BackendApplication {
 	@PostMapping("/contact-form")
 	public String contactForm(@RequestBody User user) {
 		String fileSaveMessage =  new ExcelHandler().addUser(user);
+		if (!fileSaveMessage.equals("Your message was sent, thank you!")) {
+			return fileSaveMessage;
+		}
 		SendMail mailSender = new SendMail();
 
 		String userMessage = "Dear " + user.getContactName() + ",\nthankyou for registering for the LKCYL camp, you will need to now give us money fam £25 otherwise you cant come \nKind Regards,\nLKCYL team";
