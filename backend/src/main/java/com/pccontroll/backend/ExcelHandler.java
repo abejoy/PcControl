@@ -100,7 +100,7 @@ public class ExcelHandler
         try
         {
             //Write the workbook in file system
-            FileOutputStream out = new FileOutputStream(new File("registration.xls"));
+            FileOutputStream out = new FileOutputStream(new File(FILEPATH + "registration.xls"));
             workbook.write(out);
             out.close();
             System.out.println("registration.xlsx written successfully on disk.");
