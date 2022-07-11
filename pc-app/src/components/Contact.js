@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import {press, submitForm} from '../data-service/pi-data-service'
+import HashLoader from 'react-spinners/HashLoader'
 
 const Contact = props => {
 
    const [formData, setFormData] = useState({});
    const [errorMessage, setErrorMessage] = useState('');
    const [successMessage, setSuccessMessage] = useState('');
+   const [loading, setloading] = useState(false);
 
 
    if(props.data){
@@ -42,6 +44,12 @@ const Contact = props => {
       return "";
    };
 
+   const override  = {
+      display: "block",
+      margin: "0 auto",
+      borderColor: "red",
+   };
+
    const buttonClicked = e => {
       setErrorMessage('')
       setSuccessMessage('')
@@ -53,6 +61,7 @@ const Contact = props => {
       const frontEndErrorMessage = doChecks();
 
       if (frontEndErrorMessage === "") {
+         setloading(true);
          submitForm(formData).then(msg => {
             console.log(msg)
             // Message was sent
@@ -63,14 +72,16 @@ const Contact = props => {
             else {
                setErrorMessage(msg.data);
             }
+
+            setloading(false);
          }
          ).catch(err => {
             setErrorMessage(err.message);
+            setloading(false);
          });
       } else {
          setErrorMessage(frontEndErrorMessage);
       }
-
    }
 
    const handlechange = e => {
@@ -146,9 +157,7 @@ const Contact = props => {
 
                   <div>
                      <button className="submit" >Submit</button>
-                     <span id="image-loader">
-                        <img alt="" src="images/loader.gif" />
-                     </span>
+                     <HashLoader cssOverride={override} loading={loading} color="#ffffff" />
                   </div>
                </fieldset>
                </form>
