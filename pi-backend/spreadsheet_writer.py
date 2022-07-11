@@ -4,12 +4,12 @@ from datetime import date
 myHeader = ["name", "email", "contactNum", "parentContactNum" ,"dob", "age", "registeredDate", "unitName"]
 
 def write(df):
-    writer = pd.ExcelWriter('test.xls', engine='openpyxl')
+    writer = pd.ExcelWriter('~/test.xls', engine='openpyxl')
     df.to_excel(writer, sheet_name='welcome', index=False, header=myHeader)
     writer.save()
 
 def read():
-    return pd.read_excel('test.xls' engine='openpyxl')
+    return pd.read_excel('~/test.xls' engine='openpyxl')
 
 def addRow(myrow):
     try:
