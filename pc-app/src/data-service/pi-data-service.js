@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const url = 'http://www.abrahamjoys.com:8081';
+// const url = 'http://www.abrahamjoys.com:8081';
+const url = 'http://localhost:8081';
+
 
 export const press = () => {
     console.log('i get herer')

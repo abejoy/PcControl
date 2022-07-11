@@ -54,13 +54,14 @@ const Contact = props => {
 
       if (frontEndErrorMessage === "") {
          submitForm(formData).then(msg => {
+            console.log(msg)
             // Message was sent
             if (msg.data == "Your message was sent, thank you!" || msg.data.includes('AbeFlix')) {
                setSuccessMessage(msg.data)
             }
             // There was an error
             else {
-               setErrorMessage('there was an error')
+               setErrorMessage(msg.data);
             }
          }
          ).catch(err => {
