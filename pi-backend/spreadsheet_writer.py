@@ -4,12 +4,12 @@ from datetime import date
 myHeader = ["name", "email", "contactNum", "parentContactNum" ,"dob", "age", "registeredDate", "unitName"]
 
 def write(df):
-    writer = pd.ExcelWriter('~/test.xls', engine='openpyxl')
+    writer = pd.ExcelWriter('test.xls', engine='openpyxl')
     df.to_excel(writer, sheet_name='welcome', index=False, header=myHeader)
     writer.save()
 
 def read():
-    return pd.read_excel('~/test.xls')
+    return pd.read_excel('test.xls', engine='openpyxl')
 
 def addRow(myrow):
     try:
@@ -29,7 +29,7 @@ def addRow(myrow):
 
 def main():
     today = date.today()
-    addRow(myrow = ["tommy", "jesvinjoril98@yahoo.co.in", "07744333222", "0553534342", "24/02/1998", 24, today, "NWLU"]);
+    addRow(myrow = ["tommy", "jesvddinjoril98@yahoo.co.in", "07744333222", "0553534342", "24/02/1998", 24, today, "NWLU"]);
     print(read())
 
 if __name__ == "__main__":
