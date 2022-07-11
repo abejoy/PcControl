@@ -19,23 +19,57 @@ const Contact = props => {
       var message = props.data.contactmessage;
    }
 
+   const getAge = (dateString) => {
+      var today = new Date();
+      var birthDate = new Date(dateString);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+  };
+
+   const doChecks = () => {
+      const dob = formData.dob;
+      const age = getAge(dob);
+      if (age < 14) {
+         return "You need to be 14 years old to be able to attend the camp";
+      }
+      formData["age"] = age;
+      setFormData(formData);
+
+      return "";
+   };
+
    const buttonClicked = e => {
       setErrorMessage('')
       setSuccessMessage('')
       e.preventDefault();
-      console.log(document.getElementById('image-loader'));
-      submitForm(formData).then(msg => {
-         // Message was sent
-         if (msg.data == "Your message was sent, thank you!" || msg.data.includes('AbeFlix')) {
-            setSuccessMessage(msg.data)
-         }
-         // There was an error
-         else {
-            setErrorMessage('there was an error')
-         }
-      }).catch(err => {
-         setErrorMessage(err.message);
-      });
+
+      
+
+      console.log(formData);
+      const frontEndErrorMessage = doChecks();
+
+      if (frontEndErrorMessage === "") {
+         // submitForm(formData).then(msg => {
+         //    // Message was sent
+         //    if (msg.data == "Your message was sent, thank you!" || msg.data.includes('AbeFlix')) {
+         //       setSuccessMessage(msg.data)
+         //    }
+         //    // There was an error
+         //    else {
+         //       setErrorMessage('there was an error')
+         //    }
+         // }
+         // ).catch(err => {
+         //    setErrorMessage(err.message);
+         // });
+      } else {
+         setErrorMessage(frontEndErrorMessage);
+      }
+
    }
 
    const handlechange = e => {
@@ -70,26 +104,47 @@ const Contact = props => {
 
                   <div>
                      <label htmlFor="contactName">Name <span className="required">*</span></label>
-                     <input type="text" defaultValue="" size="35" id="contactName" name="contactName" onChange={handlechange}/>
+                     <input required type="text" defaultValue="" size="35" id="contactName" name="contactName" onChange={handlechange}/>
                   </div>
 
                   <div>
                      <label htmlFor="contactEmail">Email <span className="required">*</span></label>
-                     <input type="text" defaultValue="" size="35" id="contactEmail" name="contactEmail" onChange={handlechange} />
+                     <input required type="text" defaultValue="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="35" id="contactEmail" name="contactEmail" onChange={handlechange} />
                   </div>
 
                   <div>
-                     <label htmlFor="contactSubject">Subject</label>
-                     <input type="text" defaultValue="" size="35" id="contactSubject" name="contactSubject" onChange={handlechange} />
+                     <label htmlFor="contactPhone">Phone number <span className="required">*</span></label>
+                     <input required type="tel" placeholder="07638556432" pattern="[0-9]{11}" size="35" id="contactPhone" name="contactPhone" onChange={handlechange} />
                   </div>
 
                   <div>
-                     <label htmlFor="contactMessage">Message <span className="required">*</span></label>
+                     <label htmlFor="parentPhone">Parent/Guardian contact number <span className="required">*</span></label>
+                     <input required type="tel" placeholder="07638556432" pattern="[0-9]{11}" size="35" id="parentPhone" name="parentPhone" onChange={handlechange} />
+                  </div>
+
+                  <div>
+                     <label htmlFor="dob">Date of Birth <span className="required">*</span></label>
+                     <input required type="date" defaultValue="" size="35" id="dob" name="dob" onChange={handlechange} />
+                  </div>
+
+                  <div>
+                     <label htmlFor="unit">Koodarayogyam Unit<span className="required">*</span></label>
+                     <select required id="unit" name="unit">
+                        <option value="nwl">North West London</option>
+                        <option value="el">East London</option>
+                        <option value="harlow">Harlow</option>
+                        <option value="stevenage">Stevenage</option>
+                        <option value="basildon">Basildon</option>
+                     </select>
+                  </div>
+
+                  <div>
+                     <label htmlFor="contactMessage">Additional Message or Comments </label>
                      <textarea cols="50" rows="15" id="contactMessage" name="contactMessage" onChange={handlechange}></textarea>
                   </div>
 
                   <div>
-                     <button className="submit">Submit</button>
+                     <button className="submit" >Submit</button>
                      <span id="image-loader">
                         <img alt="" src="images/loader.gif" />
                      </span>

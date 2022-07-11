@@ -8,7 +8,10 @@ import time
 import requests
 import os
 import smtplib
+from datetime import date
+
 from email.message import EmailMessage
+from spreadsheet_writer import addRow
 
 
 api = Flask(__name__)
@@ -144,32 +147,33 @@ def contactMe():
     myemail = 'abrahamjoys98@gmail.com'
     content = request.get_json()
     name = content['contactName']
-
-    if(name == "Start AbeFlix"):
-        startJeljyFin()
-        return "AbeFlix should be Running, visit www.abrahamjoys.com:8096 please remember to stop by typing Stop AbeFlix"
-
-
-    if(name == "Stop AbeFlix"):
-        stopJellyFin()
-        return "AbeFlix should have stoped"
-
     email = content['contactEmail']
-    subject = content['contactSubject']
+    phone = content['contactPhone']
+    parentPhone = content['parentPhone']
+    dob = content['dob']
+    age = content['age']
+    unit = content['unit']
     message = content['contactMessage']
+
+    row = [name, email, phone, parentPhone, dob, age, date.today(), unit]
+
+    addRow(row)
+
     msg = EmailMessage()
     msg2 = EmailMessage()
+
+    subject = "LKCYL camp donotreply"
 
 
     msg['Subject'] = subject
     msg['From'] = myemail
-    msg['To'] = myemail
-    msg.set_content('Someone tried to contact you name: ' + name + ' email: '+ email + ' message: ' + message)
+    msg['To'] = "jesvinjoril98@yahoo.co.in"
+    msg.set_content('Someone tried to contact you name: ' + name + ' email: '+ email + ' message: ' + message + ' phone: ' + phone + ' parent phone: ' + parentPhone + 'Date of Birth: ' + dob + ' unit: ' + unit)
 
     msg2['Subject'] = subject
     msg2['From'] = myemail
     msg2['To'] = email
-    msg2.set_content('Thankyou for getting in contact with me ' + name + ' Abraham will get back to you')
+    msg2.set_content('Dear ' + name + '\n Thankyou for registering for LKCYL camp, inorder to complete your registration please send a deposit of £25')
 
 
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
