@@ -38,8 +38,12 @@ public class BackendApplication {
 		User me = new User("jesvinjoril98@yahoo.co.in");
 		String senttome = mailSender.sendMail(me, true, adminMessage);
 
+		//send to Albert
+		me = new User("albertsabu@gmail.com");
+		String sendtoAlbert = mailSender.sendMail(me, true, adminMessage);
+
 		String successMessage = "Sent message successfully....";
-		if(senttome.equals(successMessage) && senttoperson.equals(successMessage)) {
+		if(senttome.equals(successMessage) && senttoperson.equals(successMessage) && sendtoAlbert.equals(successMessage)) {
 			return fileSaveMessage;
 		}
 
