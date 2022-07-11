@@ -1,4 +1,3 @@
-cd pi-backend
 docker rm -f pibackend
 docker image rm -f pibackend:prod
 mvn clean package
