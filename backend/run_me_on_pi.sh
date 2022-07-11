@@ -1,6 +1,6 @@
 docker rm -f pibackend
 docker image rm -f pibackend:prod
-mvn clean package
+sudo mvn clean package
 docker build -t pibackend:prod .
 docker run -d --name pibackend -v $(pwd):/home/docker/data -p 8081:8081 pibackend:prod
 
