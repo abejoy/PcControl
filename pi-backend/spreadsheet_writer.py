@@ -15,7 +15,7 @@ def addRow(myrow):
     try:
         df = read()
         if df['email'].str.contains(myrow[1]).any():
-            raise ValueError('Email already registered')
+            raise Exception('Email already registered')
     except FileNotFoundError:
         df = pd.DataFrame(columns=myHeader)
     
