@@ -129,7 +129,7 @@ const Contact = props => {
 
                   <div>
                      <label htmlFor="unit">Koodarayogyam Unit<span className="required">*</span></label>
-                     <select required id="unit" name="unit">
+                     <select required id="unit" defaultValue="nwl" name="unit" onChange={handlechange}>
                         <option value="nwl">North West London</option>
                         <option value="el">East London</option>
                         <option value="harlow">Harlow</option>

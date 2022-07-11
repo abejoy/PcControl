@@ -14,15 +14,11 @@ def read():
 def addRow(myrow):
     try:
         df = read()
+        if df['email'].str.contains(myrow[1]).any():
+            raise ValueError('Email already registered')
     except FileNotFoundError:
         df = pd.DataFrame(columns=myHeader)
-    except:
-        print("Something else went wrong")
     
-
-    if df['email'].str.contains(myrow[1]).any():
-        raise ValueError('Email already registered')
-
     df.loc[len(df)] = myrow
     write(df)
 
@@ -33,7 +29,7 @@ def addRow(myrow):
 
 def main():
     today = date.today()
-    addRow(myrow = ["tommy", "tomfmy@gmail.com", "07744333222", "0553534342", "24/02/1998", 24, today, "NWLU"]);
+    addRow(myrow = ["tommy", "jesvinjoril98@yahoo.co.in", "07744333222", "0553534342", "24/02/1998", 24, today, "NWLU"]);
     print(read())
 
 if __name__ == "__main__":
