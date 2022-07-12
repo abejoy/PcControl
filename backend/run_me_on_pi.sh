@@ -8,6 +8,6 @@ docker run -d --name pibackend -v $(pwd):/home/docker/data -p 8081:8081 pibacken
 cd ../pc-app
 docker rm -f pcapp
 docker image rm -f pcapp:prod
-docker build -t pcapp:prod .
+sudo docker build -t pcapp:prod .
 screen -d -m docker run -it --rm --name pcapp -p 80:80 pcapp:prod
 # sudo serve -s build -l 80
