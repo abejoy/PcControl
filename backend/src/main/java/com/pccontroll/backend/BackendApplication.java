@@ -50,7 +50,7 @@ public class BackendApplication {
 
 		String successMessage = "Sent message successfully....";
 		if(sendtoAdmins.equals(successMessage) && senttoperson.equals(successMessage)) {
-			return fileSaveMessage;
+			return "Thank you For registering for the camp, please check your email for information regarding your deposit, to confirm your registration";
 		}
 
 		return "email failure";

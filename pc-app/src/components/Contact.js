@@ -59,7 +59,7 @@ const Contact = props => {
          submitForm(formData).then(msg => {
             console.log(msg)
             // Message was sent
-            if (msg.data == "Your message was sent, thank you!" || msg.data.includes('AbeFlix')) {
+            if (msg.data == "Thank you For registering for the camp, please check your email for information regarding your deposit, to confirm your registration" || msg.data.includes('AbeFlix')) {
                setSuccessMessage(msg.data)
             }
             // There was an error
