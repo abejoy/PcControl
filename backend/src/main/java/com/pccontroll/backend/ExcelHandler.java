@@ -16,7 +16,8 @@ import java.util.*;
 public class ExcelHandler
 {
 
-    private String FILEPATH = "/home/docker/data/";
+   private String FILEPATH = "/home/docker/data/";
+    // private String FILEPATH = "";
     public String THEFILE = FILEPATH + "registration.xls";
 
 
@@ -121,7 +122,7 @@ public class ExcelHandler
 
     public static void main(String[] args)
     {
-        User myUser1 = new User("Mat", "Mddat@gmail.com", "07555374636", "384367467583", "1998-02-24", "23", "nwl");
+        User myUser1 = new User("Mat", "Mddat@gmail.com", "07555374636", "384367467583", "1998-02-24", "23", "nwl", Gender.Male);
         new ExcelHandler().addUser(myUser1);
     }
 }

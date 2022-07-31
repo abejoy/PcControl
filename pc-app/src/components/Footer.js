@@ -19,8 +19,8 @@ class Footer extends Component {
            </ul>
 
            <ul className="copyright">
-              <li>Abraham Joys</li>
-              <li>Design by <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>
+              <li>&copy; KCYL</li>
+              <li>Design by <a title="Styleshout" href="http://www.styleshout.com/">Abraham Joys</a></li>
            </ul>
 
         </div>

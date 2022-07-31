@@ -11,13 +11,7 @@ const Contact = props => {
 
 
    if(props.data){
-      var name = props.data.name;
-      var street = props.data.address.street;
-      var city = props.data.address.city;
-      var state = props.data.address.state;
-      var zip = props.data.address.zip;
-      var phone= props.data.phone;
-      var email = props.data.email;
+      var contacts = props.data.contacts;
       var message = props.data.contactmessage;
    }
 
@@ -89,6 +83,21 @@ const Contact = props => {
       setFormData(formData);
    }
 
+   const getContacts = () => {
+      const items = [];
+      contacts.forEach(contact=> {
+         items.push(
+         <div>
+            <p className="address">
+               {contact.role}: {contact.name} <br />
+               <span> <a href={"tel:" + contact.number} >{contact.number}</a></span>
+            </p>
+         </div>
+      );
+      });
+      return items;
+   }
+
    return (
       <section id="contact">
 
@@ -96,7 +105,7 @@ const Contact = props => {
 
             <div className="two columns header-col">
 
-               <h1><span>Get In Touch.</span></h1>
+               <h1><span>Camp Registration.</span></h1>
 
             </div>
 
@@ -115,8 +124,16 @@ const Contact = props => {
                <fieldset>
 
                   <div>
-                     <label htmlFor="contactName">Name <span className="required">*</span></label>
+                     <label htmlFor="contactName">Full Name<span className="required">*</span></label>
                      <input required type="text" defaultValue="" size="35" id="contactName" name="contactName" onChange={handlechange}/>
+                  </div>
+
+                  <div>
+                     <label htmlFor="gender">Gender<span className="required">*</span></label>
+                     <select required id="gender" defaultValue="Female" name="gender" onChange={handlechange}>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                     </select>
                   </div>
 
                   <div>
@@ -180,13 +197,10 @@ const Contact = props => {
             <aside className="four columns footer-widgets">
                <div className="widget widget_contact">
 
-                  <h4>Address and Phone</h4>
-                  <p className="address">
-                     {name}<br />
-                     {street} <br />
-                     {city}, {state} {zip}<br />
-                     <span>{phone}</span>
-                  </p>
+                  <h4>Contact Details</h4>
+
+                  {getContacts()}
+
                </div>
             </aside>
       </div>

@@ -2,45 +2,45 @@
   "main": {
     "name":"LKCYL",
     "occupation":"Software Developer",
-    "description":"Welcome to London Knanaya Catholic Association here will be more text of what we are. I just made this when it was really late so I coudn't be bothered to fill this all in",
+    "description":"Welcome to London Knanaya Catholic Association. We will be conducting a 3 day (2 nights) camp which will begin on Friday 30th September and ending on Sunday 2nd October, taking place in Moat Mount Outdoors Centre, Barnet Way, London NW7 5AL. \n We currently have limited spaces and will be accepting people on a first come first service basis so please register for the camp providing your details below.",
     "image":"profilepic.jpg",
     "bio":"I am just a really techy person who enjoys building stuff",
-    "contactmessage":"Please fill in the form to recieve an email about the camp",
+    "contactmessage":"Please fill in the form to register for the camp",
     "email": "abrahamjoys98@gmail.com",
-    "phone": "07551199833",
-    "address":{
-      "street":"Queens Road",
-      "city":"Slough",
-      "state":"Berkshire",
-      "zip": "SL1 3QW"
-    },
+    "contacts": [
+      {
+        "name": "Abraham Joys (aka Jesvin)",
+        "role": "LKCYL President",
+        "number": "+44 7551199833"
+      },
+      {
+        "name": "Albert Mathew",
+        "role": "LKCYL Secretary",
+        "number": "+44 7926982040"
+      },
+      {
+        "name": "Benny Kolliyil",
+        "role": "LKCA President",
+        "number": "+44 7886679734"
+      },
+      {
+        "name": "Jimmy Thomas",
+        "role": "LKCA Secretary",
+        "number": "+44 7460952027"
+      }
+    ],
     "website": "http://www.abrahamjoys.com",
     "resumedownload":"./CV.pdf",
     "social":[
       {
         "name":"facebook",
-        "url":"http://facebook.com/abe.joys/",
+        "url":"https://www.facebook.com/groups/ukkcyl",
         "className":"fa fa-facebook"
       },
       {
-        "name":"twitter",
-        "url":"http://twitter.com/aham_joy",
-        "className":"fa fa-twitter"
-      },
-      {
-        "name":"linkedin",
-        "url":"https://www.linkedin.com/in/abraham-joys-2698a6192/",
-        "className":"fa fa-linkedin"
-      },
-      {
         "name":"instagram",
-        "url":"https://www.instagram.com/aham_joy/",
+        "url":"https://www.instagram.com/london_kcyl/",
         "className":"fa fa-instagram"
-      },
-      {
-        "name":"github",
-        "url":"http://github.com/abejoy",
-        "className":"fa fa-github"
       }
     ]
   },
@@ -108,11 +108,15 @@
     "testimonials":[
       {
         "text":"One Day Event",
-        "user":"September"
+        "user":"Comming Soon"
       },
       {
-        "text":"Camp",
-        "user":"Comming soon"
+        "text":"Football Tournament",
+        "user":"Early September"
+      },
+      {
+        "text":"3 dayCamp",
+        "user":"September 30th - October 2nd"
       }
     ]
   }

@@ -1,6 +1,8 @@
 package com.pccontroll.backend;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -18,7 +20,7 @@ public class SendMail {
 
 
 
-    public String sendMail(User user, boolean attach, String myMessage) {
+    public String sendMail(List<User> users, boolean attach, String myMessage) {
 
         String from = "abrahamjoys98@gmail.com";
         // Assuming you are sending email from through gmails smtp
@@ -52,7 +54,13 @@ public class SendMail {
             message.setFrom(new InternetAddress(from));
 
             // Set To: header field of the header.
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(user.getContactEmail()));
+            users.forEach(user -> {
+                try {
+                    message.addRecipient(Message.RecipientType.TO, new InternetAddress(user.getContactEmail()));
+                } catch (MessagingException e) {
+                    throw new RuntimeException(e);
+                }
+            });
 
             // Set Subject: header field
             message.setSubject("LKCYL Camp Registration");
@@ -93,8 +101,10 @@ public class SendMail {
     }
 
     public static void main(String[] args) {
-        User myUser1 = new User("Mat", "jesvinjoril98@yahoo.co.in", "07555374636", "384367467583", "1998-02-24", "23", "nwl");
-        new SendMail().sendMail(myUser1, false, "potato");
+        User myUser1 = new User("Mat", "jesvinjoril98@yahoo.co.in", "07555374636", "384367467583", "1998-02-24", "23", "nwl", Gender.Male);
+        List<User> users = new ArrayList<>();
+        users.add(myUser1);
+        new SendMail().sendMail(users, false, "potato");
 
     }
 

@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+enum Gender {
+    Male,
+    Female
+}
+
 public class User {
     private String contactName;
     private String contactEmail;
@@ -16,9 +21,11 @@ public class User {
     private String datetoday;
     private String unit;
 
+    private Gender gender;
+
     private String contactMessage;
 
-    public User(String contactName, String contactEmail, String contactPhone, String parentPhone, String dob, String age, String unit) {
+    public User(String contactName, String contactEmail, String contactPhone, String parentPhone, String dob, String age, String unit, Gender gender) {
         this.contactName = contactName;
         this.contactEmail = contactEmail;
         this.contactPhone = contactPhone;
@@ -27,6 +34,7 @@ public class User {
         this.age = age;
         this.datetoday = new Date().toString();
         this.unit = unit;
+        this.gender = gender;
     }
 
     public User (String contactEmail) {
@@ -43,6 +51,7 @@ public class User {
         header.add("age");
         header.add("datetoday");
         header.add("unit");
+        header.add("gender");
         return header;
     }
 
@@ -59,6 +68,7 @@ public class User {
         stringUser.add(this.age);
         stringUser.add(this.datetoday);
         stringUser.add(this.unit);
+        stringUser.add(this.gender.toString());
 
         return stringUser;
     }
@@ -135,8 +145,16 @@ public class User {
         this.contactMessage = contactMessage;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     @Override
     public String toString() {
-        return this.getContactName() + " from " + this.getUnit() + " unit" + "\ncontact number: " + this.getContactPhone() + "\nparents contact number: " + this.getParentPhone() + "\nemail: " + this.getContactEmail() + "\nage: " + this.getAge() + "\nthier special message: " + this.getContactMessage();
+        return this.getContactName() + " from " + this.getUnit() + " unit" + "\ncontact number: " + this.getContactPhone() + "\nparents contact number: " + this.getParentPhone() + "\nemail: " + this.getContactEmail() + "\ngender: " + this.getGender().toString() +"\nage: " + this.getAge() + "\ntheir special message: " + this.getContactMessage();
     }
 }
