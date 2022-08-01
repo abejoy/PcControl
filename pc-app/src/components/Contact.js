@@ -28,6 +28,15 @@ const Contact = props => {
 
    const doChecks = () => {
       const dob = formData.dob;
+
+      if(formData.gender === undefined) {
+         formData.gender = 'Female';
+      }
+
+      if(formData.unit === undefined) {
+         formData.unit = 'nwl';
+      }
+
       const age = getAge(dob);
       if (age < 14) {
          return "You need to be 14 years old to be able to attend the camp";
@@ -48,10 +57,6 @@ const Contact = props => {
       setErrorMessage('')
       setSuccessMessage('')
       e.preventDefault();
-
-      
-
-      console.log(formData);
       const frontEndErrorMessage = doChecks();
 
       if (frontEndErrorMessage === "") {
