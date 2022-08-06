@@ -20,3 +20,7 @@ export const getSleepStatus = async () =>  {
 export const submitForm = async (formdata) => {
     return axios.post(url + '/contact-form', formdata);
 }
+
+export const getAllUsers = async () => {
+    return axios.get(url + '/get-all');
+}

@@ -1,5 +1,5 @@
-prev_version=0.0.9
-version=0.1.0
+prev_version=0.1.2
+version=0.1.3
 
 cd ../pc-app
 npm i

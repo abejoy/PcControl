@@ -5,10 +5,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.nio.file.Paths;
 import java.util.*;
 
@@ -16,28 +13,9 @@ import java.util.*;
 public class ExcelHandler
 {
 
-   private String FILEPATH = "/home/docker/data/";
-    // private String FILEPATH = "";
+  private String FILEPATH = "/home/docker/data/";
+    //  private String FILEPATH = "";
     public String THEFILE = FILEPATH + "registration.xls";
-
-
-    private boolean doesEmailExist (XSSFSheet mySheet, String email) {
-        Iterator<Row> rowIterator = mySheet.iterator();
-        while (rowIterator.hasNext()) {
-            Row row = rowIterator.next();
-            Iterator<Cell> cellIterator = row.cellIterator();
-            while (cellIterator.hasNext()) {
-                Cell cell = cellIterator.next();
-                if (email.equals(cell.getStringCellValue())) {
-                    return true;
-                };
-
-            }
-        }
-
-        return false;
-
-    }
 
     public String addUser(User user){
         try
@@ -48,14 +26,6 @@ public class ExcelHandler
             XSSFWorkbook sheet = new XSSFWorkbook(myxls);
             XSSFSheet worksheet = sheet.getSheetAt(0);
 
-            boolean emailExists = doesEmailExist(worksheet, user.getContactEmail());
-            if (emailExists) {
-                return "email already exists";
-            }
-
-            if(user.getUnit() == null ) {
-                user.setUnit("nwl");
-            }
             int lastRow=worksheet.getLastRowNum();
             Row row = worksheet.createRow(++lastRow);
 
@@ -80,6 +50,17 @@ public class ExcelHandler
         }
         return "Your message was sent, thank you!";
     }
+
+    public void createSheet(List<User> users) {
+        for(int i = 0; i < users.size(); i++){
+            if(i ==0) {
+                createUserWithHeader(users.get(i));
+            }else {
+                addUser(users.get(i));
+            }
+        }
+    }
+
 
 
     private void createUserWithHeader(User myUser) {
@@ -122,7 +103,7 @@ public class ExcelHandler
 
     public static void main(String[] args)
     {
-        User myUser1 = new User("Mat", "Mddat@gmail.com", "07555374636", "384367467583", "1998-02-24", "23", "nwl", Gender.Male);
+        User myUser1 = new User("Mat", "Mddat@gmail.com", "07555374636", "384367467583", "1998-02-24", "23", "nwl", Gender.Male, 25);
         new ExcelHandler().addUser(myUser1);
     }
 }

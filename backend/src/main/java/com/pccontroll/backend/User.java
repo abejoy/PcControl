@@ -1,5 +1,9 @@
 package com.pccontroll.backend;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,8 +14,12 @@ enum Gender {
     Male,
     Female
 }
-
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id;
     private String contactName;
     private String contactEmail;
     private String contactPhone;
@@ -23,9 +31,11 @@ public class User {
 
     private Gender gender;
 
+    private double amountPaid;
+
     private String contactMessage;
 
-    public User(String contactName, String contactEmail, String contactPhone, String parentPhone, String dob, String age, String unit, Gender gender) {
+    public User(String contactName, String contactEmail, String contactPhone, String parentPhone, String dob, String age, String unit, Gender gender, double amountPaid) {
         this.contactName = contactName;
         this.contactEmail = contactEmail;
         this.contactPhone = contactPhone;
@@ -35,10 +45,15 @@ public class User {
         this.datetoday = new Date().toString();
         this.unit = unit;
         this.gender = gender;
+        this.amountPaid = amountPaid;
     }
 
     public User (String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public User(){
+
     }
 
     private static List<String> getHeader() {
@@ -153,8 +168,24 @@ public class User {
         this.gender = gender;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public double getAmountPaid() {
+        return amountPaid;
+    }
+
+    public void setAmountPaid(double amountPaid) {
+        this.amountPaid = amountPaid;
+    }
+
     @Override
     public String toString() {
-        return this.getContactName() + " from " + this.getUnit() + " unit" + "\ncontact number: " + this.getContactPhone() + "\nparents contact number: " + this.getParentPhone() + "\nemail: " + this.getContactEmail() + "\ngender: " + this.getGender().toString() +"\nage: " + this.getAge() + "\ntheir special message: " + this.getContactMessage();
+        return this.getContactName() + " from " + this.getUnit() + " unit" + "\ncontact number: " + this.getContactPhone() + "\ndob: " + this.getDob() + "\nparents contact number: " + this.getParentPhone() + "\nemail: " + this.getContactEmail() + "\ngender: " + this.getGender().toString() +"\nage: " + this.getAge() + "\ntheir special message: " + this.getContactMessage();
     }
 }

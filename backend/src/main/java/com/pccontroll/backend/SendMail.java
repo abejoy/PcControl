@@ -101,7 +101,7 @@ public class SendMail {
     }
 
     public static void main(String[] args) {
-        User myUser1 = new User("Mat", "jesvinjoril98@yahoo.co.in", "07555374636", "384367467583", "1998-02-24", "23", "nwl", Gender.Male);
+        User myUser1 = new User("Mat", "jesvinjoril98@yahoo.co.in", "07555374636", "384367467583", "1998-02-24", "23", "nwl", Gender.Male, 25.0);
         List<User> users = new ArrayList<>();
         users.add(myUser1);
         new SendMail().sendMail(users, false, "potato");

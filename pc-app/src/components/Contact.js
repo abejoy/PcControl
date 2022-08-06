@@ -1,13 +1,31 @@
 import React, { useState } from 'react';
-import {press, submitForm} from '../data-service/pi-data-service'
+import {press, submitForm, getAllUsers} from '../data-service/pi-data-service'
 import HashLoader from 'react-spinners/HashLoader'
+import Modal from 'react-modal';
+import MyTable  from './MyTable.js'
+
+
 
 const Contact = props => {
+
+   const heading = ['Name', 'Gender', 'Age', 'Unit', 'Email', 'Phone', 'ParentPhone'];
 
    const [formData, setFormData] = useState({});
    const [errorMessage, setErrorMessage] = useState('');
    const [successMessage, setSuccessMessage] = useState('');
    const [loading, setloading] = useState(false);
+   const [modalStatus, setModalStatus] = useState(false);
+   const [tabledata, setTableData] = useState({});
+
+   const openModal = async () => {
+      const body = await getAllUsers();
+      setTableData({heading, body: body.data});
+      setModalStatus(true);
+   }
+
+   const closeModal = () => {
+      setModalStatus(false);
+   }
 
 
    if(props.data){
@@ -66,6 +84,9 @@ const Contact = props => {
             // Message was sent
             if (msg.data == "Thank you For registering for the camp, please check your email for information regarding your deposit, to confirm your registration" || msg.data.includes('AbeFlix')) {
                setSuccessMessage(msg.data)
+            }
+            else if(msg.data == "admindash") {
+               openModal();
             }
             // There was an error
             else {
@@ -210,6 +231,18 @@ const Contact = props => {
             </aside>
       </div>
       </div>
+      <button onClick={openModal}></button>
+      <Modal
+        isOpen={modalStatus}
+      //   onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+      //   style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+        <MyTable data={tabledata} />
+      </Modal>
       </section>
    );
 
