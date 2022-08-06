@@ -231,7 +231,6 @@ const Contact = props => {
             </aside>
       </div>
       </div>
-      <button onClick={openModal}></button>
       <Modal
         isOpen={modalStatus}
       //   onAfterOpen={afterOpenModal}
