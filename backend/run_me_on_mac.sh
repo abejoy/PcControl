@@ -1,5 +1,5 @@
-prev_version=0.1.2
-version=0.1.3
+prev_version=0.1.4
+version=0.1.5
 
 cd ../pc-app
 npm i
@@ -15,5 +15,5 @@ docker tag pibackend:prod abrahamjoys98/lkcyl:$version
 docker push abrahamjoys98/lkcyl:$version
 
 
-bash -c "ssh root@www.lkcyl.com 'cd /; docker rm -f pibackend; docker image rm abrahamjoys98/lkcyl:$prev_version; docker run -d --name pibackend -v $(pwd):/home/docker/data -p 80:80 abrahamjoys98/lkcyl:$version'"
+bash -c "ssh root@www.lkcyl.com 'cd /; docker rm -f pibackend; docker image rm abrahamjoys98/lkcyl:$prev_version; docker run -d --name pibackend --link camp:mysql -v $(pwd):/home/docker/data -p 80:80 abrahamjoys98/lkcyl:$version'"
 

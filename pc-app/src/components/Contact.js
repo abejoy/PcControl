@@ -239,7 +239,7 @@ const Contact = props => {
         contentLabel="Example Modal"
       >
         <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
+        <div>Welcome to top secret page dont share this with anyone</div>
         <MyTable data={tabledata} />
       </Modal>
       </section>

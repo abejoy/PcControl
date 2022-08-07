@@ -7,7 +7,7 @@ const MyTable = props =>  {
         var body = props.data.body;
       }
       return (
-          <table style={{ width: 500 }}>
+          <table style={{ width: 1550 }}>
               <thead>
                   <tr>
                       {heading.map(head => <th>{head}</th>)}
