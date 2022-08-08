@@ -2,7 +2,8 @@
   "main": {
     "name":"LKCYL",
     "occupation":"Software Developer",
-    "description":"Welcome to London Knanaya Catholic Association. We will be conducting a 3 day (2 nights) camp which will begin on Friday 30th September and ending on Sunday 2nd October, taking place in Moat Mount Outdoors Centre, Barnet Way, London NW7 5AL. \n We currently have limited spaces and will be accepting people on a first come first service basis so please register for the camp providing your details below.",
+    "description":"Welcome to London Knanaya Catholic Association. We will be conducting a 3 day (2 nights) camp which will begin on Friday 30th September and ending on Sunday 2nd October, taking place in Moat Mount Outdoors Centre, Barnet Way, London NW7 5AL. \n We are currently fully booked and have stoped registration, if there are any cancelations we will reopen the registration please keep an eye on this page.",
+    "extra": "have limited spaces and will be accepting people on a first come first service basis so please register for the camp providing your details below.",
     "image":"profilepic.jpg",
     "bio":"I am just a really techy person who enjoys building stuff",
     "contactmessage":"Please fill in the form to register for the camp",
