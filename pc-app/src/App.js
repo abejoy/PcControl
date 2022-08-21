@@ -25,7 +25,7 @@ function App() {
       {/* <About data={resumeData.main}/> */}
       {/* <Resume data={resumeData.resume}/> */}
       <Testimonials data={resumeData.testimonials}/>
-      {/* <Contact data={resumeData.main}/> */}
+      <Contact data={resumeData.main}/>
       <Footer data={resumeData.main}/>
     </div>
   );

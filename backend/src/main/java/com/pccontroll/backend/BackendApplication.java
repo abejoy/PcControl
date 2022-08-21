@@ -72,6 +72,7 @@ public class BackendApplication {
 			List<String> userString = new ArrayList<>();
 			userString.add(user.getContactName());
 			userString.add(user.getGender().name());
+			userString.add(String.valueOf(user.getAmountPaid()));
 			userString.add(user.getAge());
 			userString.add(user.getUnit());
 			userString.add(user.getContactEmail());

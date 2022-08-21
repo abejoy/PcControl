@@ -8,7 +8,7 @@ import MyTable  from './MyTable.js'
 
 const Contact = props => {
 
-   const heading = ['Name', 'Gender', 'Age', 'Unit', 'Email', 'Phone', 'ParentPhone'];
+   const heading = ['Name', 'Gender', 'Paid', 'Age', 'Unit', 'Email', 'Phone', 'ParentPhone'];
 
    const [formData, setFormData] = useState({});
    const [errorMessage, setErrorMessage] = useState('');
