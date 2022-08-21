@@ -46,7 +46,7 @@ def angle(anglenum):
 @api.route('/press', methods=['GET'])
 def press():
     global presscount, sleeping
-    change_angle(130)
+    change_angle(110)
     time.sleep(0.5)
     change_angle(0)
     presscount += 1
