@@ -59,6 +59,9 @@ const Contact = props => {
       if (age < 14) {
          return "You need to be 14 years old to be able to attend the camp";
       }
+      if (age < 30) {
+         return "Thankyou for Registering for the camp but unfortunately we are at full capacity now please contact us for any cancelations, Only Director registration available."
+      }
       formData["age"] = age;
       setFormData(formData);
 
